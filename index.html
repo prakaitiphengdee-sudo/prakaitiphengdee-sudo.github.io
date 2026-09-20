@@ -196,6 +196,57 @@
       font-weight: bold;
       color: #c95c8c;
     }
+
+    /* ==============================
+       PAYMENT
+       ============================== */
+
+    .payment-box {
+      display: none;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 25px;
+      box-shadow: 0 5px 18px rgba(220, 130, 165, 0.15);
+      text-align: center;
+    }
+
+    .payment-box.show {
+      display: block;
+    }
+
+    .payment-box h2 {
+      color: #c95c8c;
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .payment-box p {
+      margin: 8px 0;
+    }
+
+    .payment-qr {
+      width: min(280px, 100%);
+      display: block;
+      margin: 18px auto;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .payment-total {
+      font-size: 22px;
+      font-weight: bold;
+      color: #c95c8c;
+      margin: 12px 0;
+    }
+
+    .payment-note {
+      background: #fff4f8;
+      border-radius: 14px;
+      padding: 12px;
+      color: #8b6575;
+      line-height: 1.6;
+    }
   </style>
 </head>
 
@@ -221,7 +272,6 @@
 
         <div class="product-info">
           <div class="product-name">🎀 กำไลเชือกเทียน</div>
-
           <div class="price">39 บาท</div>
 
           <button
@@ -244,7 +294,6 @@
 
         <div class="product-info">
           <div class="product-name">🌸 สร้อยเชือกเทียน</div>
-
           <div class="price">79 บาท</div>
 
           <button
@@ -267,7 +316,6 @@
 
         <div class="product-info">
           <div class="product-name">✨ สายรัดเข็มขัด</div>
-
           <div class="price">59 บาท</div>
 
           <button
@@ -350,6 +398,48 @@
 
     </form>
 
+
+    <!-- ==============================
+         PAYMENT QR
+         ============================== -->
+
+    <section
+      class="payment-box"
+      id="paymentBox"
+    >
+
+      <h2>💗 ชำระเงิน</h2>
+
+      <p>
+        สแกน QR พร้อมเพย์เพื่อชำระเงินได้เลยค่ะ
+      </p>
+
+      <div class="payment-total">
+        ยอดที่ต้องชำระ
+        <span id="paymentTotal">0</span>
+        บาท
+      </div>
+
+      <img
+        class="payment-qr"
+        src="https://raw.githubusercontent.com/prakaitiphengdee-sudo/lovely-loop-images/main/promptpay-qr.png"
+        alt="QR พร้อมเพย์ Lovely Loop"
+      >
+
+      <div class="payment-note">
+
+        📱 สแกน QR แล้วกรอกยอดเงินตามยอดที่แสดงด้านบน
+        <br>
+
+        💕 หลังโอนเงินแล้ว กรุณาเก็บหลักฐานการโอนไว้
+        <br>
+
+        🌷 ทางร้านจะตรวจสอบยอดและติดต่อกลับค่ะ
+
+      </div>
+
+    </section>
+
   </div>
 
 
@@ -395,6 +485,7 @@
       }
 
       renderCart();
+
     }
 
 
@@ -411,6 +502,7 @@
       }
 
       renderCart();
+
     }
 
 
@@ -450,12 +542,19 @@
           <div class="cart-item">
 
             <div>
+
               <strong>${item.name}</strong>
+
               <br>
+
               ${item.price} บาท × ${item.quantity}
+
               <br>
+
               <small>รวม ${subtotal} บาท</small>
+
             </div>
+
 
             <div class="quantity">
 
@@ -465,6 +564,7 @@
               >
                 −
               </button>
+
 
               <button
                 type="button"
@@ -482,7 +582,9 @@
 
 
       cartItems.innerHTML = html;
+
       totalElement.textContent = total;
+
     }
 
 
@@ -570,6 +672,7 @@
           WEB_APP_URL,
           {
             method: "POST",
+
             mode: "no-cors",
 
             headers: {
@@ -587,16 +690,27 @@
           "💗 ส่งคำสั่งซื้อเรียบร้อยแล้วค่ะ";
 
 
+        /* แสดง QR พร้อมเพย์ */
+
+        document.getElementById("paymentTotal").textContent =
+          total;
+
+        document
+          .getElementById("paymentBox")
+          .classList.add("show");
+
+
         alert(
           "🌷 ขอบคุณสำหรับคำสั่งซื้อค่ะ 💗\n\n" +
           "ระบบได้รับข้อมูลคำสั่งซื้อแล้ว\n" +
-          "ทางร้านจะตรวจสอบและติดต่อกลับค่ะ"
+          "กรุณาชำระเงินตาม QR พร้อมเพย์ที่แสดงด้านล่างค่ะ"
         );
 
 
         cart = [];
 
         renderCart();
+
 
         document
           .querySelector("form")
@@ -622,6 +736,7 @@
 
         button.textContent =
           "💗 ยืนยันคำสั่งซื้อ";
+
       }
 
     }
