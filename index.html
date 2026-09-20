@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lovely Loop</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff7fa;
+      color: #555;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f8b6cf, #fbdde9);
+      text-align: center;
+      padding: 28px 16px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #c95c8c;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #8b6575;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px 15px 40px;
+    }
+
+    .section-title {
+      color: #c95c8c;
+      margin: 25px 0 15px;
+      font-size: 22px;
+    }
+
+    .products {
+      display: grid;
+      gap: 18px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(220, 130, 165, 0.15);
+    }
+
+    .product img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1.51 / 1;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-name {
+      font-size: 19px;
+      font-weight: bold;
+      color: #c95c8c;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 8px 0 12px;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .add-btn {
+      width: 100%;
+      background: #e88bb3;
+      color: white;
+    }
+
+    .cart {
+      background: white;
+      border-radius: 20px;
+      padding: 18px;
+      margin-top: 25px;
+      box-shadow: 0 5px 18px rgba(220, 130, 165, 0.15);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f3dce6;
+      gap: 10px;
+    }
+
+    .quantity {
+      display: flex;
+      gap: 5px;
+    }
+
+    .quantity button {
+      padding: 5px 10px;
+      background: #f8d2e1;
+      color: #a65378;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 20px;
+      font-weight: bold;
+      color: #c95c8c;
+      margin-top: 15px;
+    }
+
+    form {
+      background: white;
+      border-radius: 20px;
+      padding: 18px;
+      margin-top: 25px;
+      box-shadow: 0 5px 18px rgba(220, 130, 165, 0.15);
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #8b6575;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #f0cbd9;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .order-btn {
+      width: 100%;
+      margin-top: 20px;
+      background: #d96c9b;
+      color: white;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .empty {
+      text-align: center;
+      color: #999;
+      padding: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #a47788;
+      font-size: 14px;
+    }
+
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #c95c8c;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🌷 Lovely Loop 🎀</h1>
+    <p>งานแฮนด์เมดทำด้วยใจทุกชิ้น 💗</p>
+  </header>
+
+  <div class="container">
+
+    <h2 class="section-title">🛍️ สินค้าของเรา</h2>
+
+    <div class="products">
+
+      <!-- กำไล -->
+      <div class="product">
+        <img
+          src="https://raw.githubusercontent.com/prakaitiphengdee-sudo/lovely-loop-images/main/IMG_1282.png"
+          alt="กำไลเชือกเทียน"
+        >
+
+        <div class="product-info">
+          <div class="product-name">🎀 กำไลเชือกเทียน</div>
+
+          <div class="price">39 บาท</div>
+
+          <button
+            class="add-btn"
+            type="button"
+            onclick="addToCart('กำไลเชือกเทียน', 39)"
+          >
+            🛒 เพิ่มลงตะกร้า
+          </button>
+        </div>
+      </div>
+
+
+      <!-- สร้อย -->
+      <div class="product">
+        <img
+          src="https://raw.githubusercontent.com/prakaitiphengdee-sudo/lovely-loop-images/main/IMG_1274.png"
+          alt="สร้อยเชือกเทียน"
+        >
+
+        <div class="product-info">
+          <div class="product-name">🌸 สร้อยเชือกเทียน</div>
+
+          <div class="price">79 บาท</div>
+
+          <button
+            class="add-btn"
+            type="button"
+            onclick="addToCart('สร้อยเชือกเทียน', 79)"
+          >
+            🛒 เพิ่มลงตะกร้า
+          </button>
+        </div>
+      </div>
+
+
+      <!-- สายรัดเข็มขัด -->
+      <div class="product">
+        <img
+          src="https://raw.githubusercontent.com/prakaitiphengdee-sudo/lovely-loop-images/main/IMG_1287.png"
+          alt="สายรัดเข็มขัด"
+        >
+
+        <div class="product-info">
+          <div class="product-name">✨ สายรัดเข็มขัด</div>
+
+          <div class="price">59 บาท</div>
+
+          <button
+            class="add-btn"
+            type="button"
+            onclick="addToCart('สายรัดเข็มขัด', 59)"
+          >
+            🛒 เพิ่มลงตะกร้า
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <h2 class="section-title">🛒 ตะกร้าสินค้า</h2>
+
+    <div class="cart">
+
+      <div id="cartItems">
+        <div class="empty">
+          ยังไม่มีสินค้าในตะกร้า 💕
+        </div>
+      </div>
+
+      <div class="total">
+        รวมทั้งหมด:
+        <span id="total">0</span>
+        บาท
+      </div>
+
+    </div>
+
+
+    <h2 class="section-title">🧾 ข้อมูลสำหรับจัดส่ง</h2>
+
+    <form onsubmit="submitOrder(event)">
+
+      <label for="name">ชื่อผู้รับ</label>
+
+      <input
+        id="name"
+        type="text"
+        placeholder="กรอกชื่อ-นามสกุล"
+        required
+      >
+
+
+      <label for="phone">เบอร์โทรศัพท์</label>
+
+      <input
+        id="phone"
+        type="tel"
+        placeholder="กรอกเบอร์โทรศัพท์"
+        required
+      >
+
+
+      <label for="address">ที่อยู่จัดส่ง</label>
+
+      <textarea
+        id="address"
+        placeholder="บ้านเลขที่ ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์"
+        required
+      ></textarea>
+
+
+      <button
+        class="order-btn"
+        id="orderButton"
+        type="submit"
+      >
+        💗 ยืนยันคำสั่งซื้อ
+      </button>
+
+      <div
+        class="status"
+        id="status"
+      ></div>
+
+    </form>
+
+  </div>
+
+
+  <footer>
+    🌷 Lovely Loop — Handmade with Love 💕
+  </footer>
+
+
+  <script>
+
+    /* =====================================
+       GOOGLE APPS SCRIPT WEB APP
+       ===================================== */
+
+    const WEB_APP_URL =
+      "https://script.google.com/macros/s/AKfycbzTDmBdazxi_Ju9qQKZubsofXQezdhlq4Iz9wH4_0p4r1k0e0u2SRk6umw81fxpfjr9NQ/exec";
+
+
+    /* =====================================
+       CART
+       ===================================== */
+
+    let cart = [];
+
+
+    function addToCart(name, price) {
+
+      const existingItem =
+        cart.find(item => item.name === name);
+
+      if (existingItem) {
+
+        existingItem.quantity++;
+
+      } else {
+
+        cart.push({
+          name: name,
+          price: price,
+          quantity: 1
+        });
+
+      }
+
+      renderCart();
+    }
+
+
+    function changeQuantity(index, amount) {
+
+      if (!cart[index]) {
+        return;
+      }
+
+      cart[index].quantity += amount;
+
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+
+      renderCart();
+    }
+
+
+    function renderCart() {
+
+      const cartItems =
+        document.getElementById("cartItems");
+
+      const totalElement =
+        document.getElementById("total");
+
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML =
+          '<div class="empty">ยังไม่มีสินค้าในตะกร้า 💕</div>';
+
+        totalElement.textContent = "0";
+
+        return;
+      }
+
+
+      let total = 0;
+      let html = "";
+
+
+      cart.forEach((item, index) => {
+
+        const subtotal =
+          item.price * item.quantity;
+
+        total += subtotal;
+
+
+        html += `
+          <div class="cart-item">
+
+            <div>
+              <strong>${item.name}</strong>
+              <br>
+              ${item.price} บาท × ${item.quantity}
+              <br>
+              <small>รวม ${subtotal} บาท</small>
+            </div>
+
+            <div class="quantity">
+
+              <button
+                type="button"
+                onclick="changeQuantity(${index}, -1)"
+              >
+                −
+              </button>
+
+              <button
+                type="button"
+                onclick="changeQuantity(${index}, 1)"
+              >
+                +
+              </button>
+
+            </div>
+
+          </div>
+        `;
+
+      });
+
+
+      cartItems.innerHTML = html;
+      totalElement.textContent = total;
+    }
+
+
+    /* =====================================
+       SUBMIT ORDER
+       ===================================== */
+
+    async function submitOrder(event) {
+
+      event.preventDefault();
+
+
+      if (cart.length === 0) {
+
+        alert("กรุณาเลือกสินค้าก่อนนะคะ 💕");
+
+        return;
+      }
+
+
+      const name =
+        document.getElementById("name").value.trim();
+
+      const phone =
+        document.getElementById("phone").value.trim();
+
+      const address =
+        document.getElementById("address").value.trim();
+
+
+      const total =
+        cart.reduce(
+          (sum, item) =>
+            sum + (item.price * item.quantity),
+          0
+        );
+
+
+      const items =
+        cart
+          .map(item =>
+            `${item.name} x ${item.quantity}`
+          )
+          .join(", ");
+
+
+      const quantity =
+        cart
+          .map(item =>
+            item.quantity
+          )
+          .join(", ");
+
+
+      const orderData = {
+
+        name: name,
+        phone: phone,
+        address: address,
+        items: items,
+        quantity: quantity,
+        total: total
+
+      };
+
+
+      const button =
+        document.getElementById("orderButton");
+
+      const status =
+        document.getElementById("status");
+
+
+      button.disabled = true;
+
+      button.textContent =
+        "⏳ กำลังส่งคำสั่งซื้อ...";
+
+      status.textContent = "";
+
+
+      try {
+
+        await fetch(
+          WEB_APP_URL,
+          {
+            method: "POST",
+            mode: "no-cors",
+
+            headers: {
+              "Content-Type":
+                "text/plain;charset=utf-8"
+            },
+
+            body:
+              JSON.stringify(orderData)
+          }
+        );
+
+
+        status.textContent =
+          "💗 ส่งคำสั่งซื้อเรียบร้อยแล้วค่ะ";
+
+
+        alert(
+          "🌷 ขอบคุณสำหรับคำสั่งซื้อค่ะ 💗\n\n" +
+          "ระบบได้รับข้อมูลคำสั่งซื้อแล้ว\n" +
+          "ทางร้านจะตรวจสอบและติดต่อกลับค่ะ"
+        );
+
+
+        cart = [];
+
+        renderCart();
+
+        document
+          .querySelector("form")
+          .reset();
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+          "❌ ไม่สามารถส่งคำสั่งซื้อได้";
+
+
+        alert(
+          "ขออภัยค่ะ ระบบส่งคำสั่งซื้อไม่สำเร็จ\n" +
+          "กรุณาลองใหม่อีกครั้งนะคะ"
+        );
+
+      } finally {
+
+        button.disabled = false;
+
+        button.textContent =
+          "💗 ยืนยันคำสั่งซื้อ";
+      }
+
+    }
+
+
+    renderCart();
+
+  </script>
+
+</body>
+</html>
