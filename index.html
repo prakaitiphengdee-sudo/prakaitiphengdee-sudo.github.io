@@ -197,9 +197,7 @@
       color: #c95c8c;
     }
 
-    /* ==============================
-       PAYMENT
-       ============================== */
+    /* PAYMENT */
 
     .payment-box {
       display: none;
@@ -246,6 +244,22 @@
       padding: 12px;
       color: #8b6575;
       line-height: 1.6;
+    }
+
+    .line-notify-btn {
+      display: block;
+      margin-top: 15px;
+      padding: 13px;
+      background: #06c755;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .line-notify-btn:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
@@ -399,9 +413,7 @@
     </form>
 
 
-    <!-- ==============================
-         PAYMENT QR
-         ============================== -->
+    <!-- PAYMENT QR -->
 
     <section
       class="payment-box"
@@ -437,6 +449,17 @@
         🌷 ทางร้านจะตรวจสอบยอดและติดต่อกลับค่ะ
 
       </div>
+
+
+      <!-- LINE NOTIFICATION BUTTON -->
+
+      <a
+        class="line-notify-btn"
+        href="https://line.me/R/ti/p/@470aayjt"
+        target="_blank"
+      >
+        💌 แจ้งชำระเงินทาง LINE
+      </a>
 
     </section>
 
@@ -692,8 +715,9 @@
 
         /* แสดง QR พร้อมเพย์ */
 
-        document.getElementById("paymentTotal").textContent =
-          total;
+        document
+          .getElementById("paymentTotal")
+          .textContent = total;
 
         document
           .getElementById("paymentBox")
