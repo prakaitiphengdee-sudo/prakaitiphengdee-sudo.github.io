@@ -471,7 +471,53 @@
   </footer>
 
 
+  <!-- LIFF SDK -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
   <script>
+
+    /* =====================================
+       LIFF
+       ===================================== */
+
+    const LIFF_ID = "2011677170-hmhyIinq";
+
+    let lineUserId = "";
+
+    async function initLIFF() {
+
+      try {
+
+        await liff.init({
+          liffId: LIFF_ID
+        });
+
+        if (liff.isLoggedIn()) {
+
+          const profile = await liff.getProfile();
+
+          lineUserId = profile.userId;
+
+          console.log(
+            "LINE User ID:",
+            lineUserId
+          );
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          "LIFF initialization error:",
+          error
+        );
+
+      }
+
+    }
+
+    initLIFF();
+
 
     /* =====================================
        GOOGLE APPS SCRIPT WEB APP
@@ -521,7 +567,9 @@
       cart[index].quantity += amount;
 
       if (cart[index].quantity <= 0) {
+
         cart.splice(index, 1);
+
       }
 
       renderCart();
@@ -662,6 +710,10 @@
           .join(", ");
 
 
+      /* =====================================
+         ORDER DATA
+         ===================================== */
+
       const orderData = {
 
         name: name,
@@ -669,7 +721,10 @@
         address: address,
         items: items,
         quantity: quantity,
-        total: total
+        total: total,
+
+        /* LINE USER ID */
+        lineUserId: lineUserId
 
       };
 
@@ -694,6 +749,7 @@
         await fetch(
           WEB_APP_URL,
           {
+
             method: "POST",
 
             mode: "no-cors",
@@ -705,6 +761,7 @@
 
             body:
               JSON.stringify(orderData)
+
           }
         );
 
