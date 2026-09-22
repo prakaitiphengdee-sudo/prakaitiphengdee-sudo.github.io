@@ -101,6 +101,50 @@
       color: white;
     }
 
+    .product-option {
+      margin-top: 12px;
+    }
+
+    .product-option label {
+      display: block;
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #8b6575;
+    }
+
+    .product-option select {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #f0cbd9;
+      border-radius: 12px;
+      background: #fffafd;
+      color: #555;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .product-option select:focus {
+      border-color: #e88bb3;
+      box-shadow: 0 0 0 3px rgba(232, 139, 179, 0.12);
+    }
+
+    .selected-detail {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: #fff4f8;
+      border-radius: 12px;
+      color: #8b6575;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .cart-detail {
+      color: #8b6575;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
     .cart {
       background: white;
       border-radius: 20px;
@@ -271,104 +315,382 @@
     <p>งานแฮนด์เมดทำด้วยใจทุกชิ้น 💗</p>
   </header>
 
+
   <div class="container">
 
     <h2 class="section-title">🛍️ สินค้าของเรา</h2>
 
     <div class="products">
 
+      <div class="selected-detail">
+        💕 เลือกสีและลาย / จี้ที่ต้องการก่อนกด “เพิ่มลงตะกร้า” นะคะ
+      </div>
+
+
       <!-- กำไล -->
       <div class="product">
+
         <img
           src="https://raw.githubusercontent.com/prakaitiphengdee-sudo/lovely-loop-images/main/IMG_1282.png"
           alt="กำไลเชือกเทียน"
         >
 
         <div class="product-info">
-          <div class="product-name">🎀 กำไลเชือกเทียน</div>
-          <div class="price">39 บาท</div>
+
+          <div class="product-name">
+            🎀 กำไลเชือกเทียน
+          </div>
+
+          <div class="price">
+            39 บาท
+          </div>
+
+
+          <div class="product-option">
+
+            <label for="braceletColor">
+              🎨 เลือกสี
+            </label>
+
+            <select id="braceletColor">
+
+              <option value="">
+                -- กรุณาเลือกสี --
+              </option>
+
+              <option>ชมพู</option>
+              <option>ชมพูอ่อน</option>
+              <option>ม่วง</option>
+              <option>ม่วงอ่อน</option>
+              <option>ฟ้า</option>
+              <option>ฟ้าอ่อน</option>
+              <option>เขียว</option>
+              <option>เขียวอ่อน</option>
+              <option>เหลือง</option>
+              <option>ส้ม</option>
+              <option>แดง</option>
+              <option>ขาว</option>
+              <option>ดำ</option>
+              <option>น้ำตาล</option>
+              <option>ครีม</option>
+              <option>ใส</option>
+              <option>พาสเทลรวมสี</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="product-option">
+
+            <label for="braceletPattern">
+              🌸 เลือกลาย / จี้
+            </label>
+
+            <select id="braceletPattern">
+
+              <option value="">
+                -- กรุณาเลือกลาย / จี้ --
+              </option>
+
+              <option>ดอกไม้</option>
+              <option>ผีเสื้อ</option>
+              <option>หัวใจ</option>
+              <option>ดาว</option>
+              <option>โบว์</option>
+              <option>เชอร์รี่</option>
+              <option>ส้ม</option>
+              <option>ปลา</option>
+              <option>เปลือกหอย</option>
+              <option>เมฆ</option>
+              <option>โคลเวอร์</option>
+              <option>หมี</option>
+              <option>กระต่าย</option>
+              <option>แมว</option>
+              <option>พระจันทร์</option>
+              <option>สายรุ้ง</option>
+              <option>คละลาย</option>
+
+            </select>
+
+          </div>
+
 
           <button
             class="add-btn"
             type="button"
-            onclick="addToCart('กำไลเชือกเทียน', 39)"
+            onclick="addSelectedToCart(
+              'กำไลเชือกเทียน',
+              39,
+              'braceletColor',
+              'braceletPattern'
+            )"
           >
             🛒 เพิ่มลงตะกร้า
           </button>
+
         </div>
+
       </div>
 
 
       <!-- สร้อย -->
       <div class="product">
+
         <img
           src="https://raw.githubusercontent.com/prakaitiphengdee-sudo/lovely-loop-images/main/IMG_1274.png"
           alt="สร้อยเชือกเทียน"
         >
 
         <div class="product-info">
-          <div class="product-name">🌸 สร้อยเชือกเทียน</div>
-          <div class="price">79 บาท</div>
+
+          <div class="product-name">
+            🌸 สร้อยเชือกเทียน
+          </div>
+
+          <div class="price">
+            79 บาท
+          </div>
+
+
+          <div class="product-option">
+
+            <label for="necklaceColor">
+              🎨 เลือกสี
+            </label>
+
+            <select id="necklaceColor">
+
+              <option value="">
+                -- กรุณาเลือกสี --
+              </option>
+
+              <option>ชมพู</option>
+              <option>ชมพูอ่อน</option>
+              <option>ม่วง</option>
+              <option>ม่วงอ่อน</option>
+              <option>ฟ้า</option>
+              <option>ฟ้าอ่อน</option>
+              <option>เขียว</option>
+              <option>เขียวอ่อน</option>
+              <option>เหลือง</option>
+              <option>ส้ม</option>
+              <option>แดง</option>
+              <option>ขาว</option>
+              <option>ดำ</option>
+              <option>น้ำตาล</option>
+              <option>ครีม</option>
+              <option>ใส</option>
+              <option>พาสเทลรวมสี</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="product-option">
+
+            <label for="necklacePattern">
+              🌷 เลือกลาย / จี้
+            </label>
+
+            <select id="necklacePattern">
+
+              <option value="">
+                -- กรุณาเลือกลาย / จี้ --
+              </option>
+
+              <option>ดอกไม้</option>
+              <option>ผีเสื้อ</option>
+              <option>หัวใจ</option>
+              <option>ดาว</option>
+              <option>โบว์</option>
+              <option>เชอร์รี่</option>
+              <option>ส้ม</option>
+              <option>ปลา</option>
+              <option>เปลือกหอย</option>
+              <option>เมฆ</option>
+              <option>โคลเวอร์</option>
+              <option>หมี</option>
+              <option>กระต่าย</option>
+              <option>แมว</option>
+              <option>พระจันทร์</option>
+              <option>สายรุ้ง</option>
+              <option>คละลาย</option>
+
+            </select>
+
+          </div>
+
 
           <button
             class="add-btn"
             type="button"
-            onclick="addToCart('สร้อยเชือกเทียน', 79)"
+            onclick="addSelectedToCart(
+              'สร้อยเชือกเทียน',
+              79,
+              'necklaceColor',
+              'necklacePattern'
+            )"
           >
             🛒 เพิ่มลงตะกร้า
           </button>
+
         </div>
+
       </div>
 
 
       <!-- สายรัดเข็มขัด -->
       <div class="product">
+
         <img
           src="https://raw.githubusercontent.com/prakaitiphengdee-sudo/lovely-loop-images/main/IMG_1287.png"
           alt="สายรัดเข็มขัด"
         >
 
         <div class="product-info">
-          <div class="product-name">✨ สายรัดเข็มขัด</div>
-          <div class="price">59 บาท</div>
+
+          <div class="product-name">
+            ✨ สายรัดเข็มขัด
+          </div>
+
+          <div class="price">
+            59 บาท
+          </div>
+
+
+          <div class="product-option">
+
+            <label for="beltColor">
+              🎨 เลือกสี
+            </label>
+
+            <select id="beltColor">
+
+              <option value="">
+                -- กรุณาเลือกสี --
+              </option>
+
+              <option>ชมพู</option>
+              <option>ชมพูอ่อน</option>
+              <option>ม่วง</option>
+              <option>ม่วงอ่อน</option>
+              <option>ฟ้า</option>
+              <option>ฟ้าอ่อน</option>
+              <option>เขียว</option>
+              <option>เขียวอ่อน</option>
+              <option>เหลือง</option>
+              <option>ส้ม</option>
+              <option>แดง</option>
+              <option>ขาว</option>
+              <option>ดำ</option>
+              <option>น้ำตาล</option>
+              <option>ครีม</option>
+              <option>ใส</option>
+              <option>พาสเทลรวมสี</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="product-option">
+
+            <label for="beltPattern">
+              ✨ เลือกลาย / จี้
+            </label>
+
+            <select id="beltPattern">
+
+              <option value="">
+                -- กรุณาเลือกลาย / จี้ --
+              </option>
+
+              <option>ดอกไม้</option>
+              <option>ผีเสื้อ</option>
+              <option>หัวใจ</option>
+              <option>ดาว</option>
+              <option>โบว์</option>
+              <option>เชอร์รี่</option>
+              <option>ส้ม</option>
+              <option>ปลา</option>
+              <option>เปลือกหอย</option>
+              <option>เมฆ</option>
+              <option>โคลเวอร์</option>
+              <option>หมี</option>
+              <option>กระต่าย</option>
+              <option>แมว</option>
+              <option>พระจันทร์</option>
+              <option>สายรุ้ง</option>
+              <option>คละลาย</option>
+
+            </select>
+
+          </div>
+
 
           <button
             class="add-btn"
             type="button"
-            onclick="addToCart('สายรัดเข็มขัด', 59)"
+            onclick="addSelectedToCart(
+              'สายรัดเข็มขัด',
+              59,
+              'beltColor',
+              'beltPattern'
+            )"
           >
             🛒 เพิ่มลงตะกร้า
           </button>
+
         </div>
+
       </div>
 
     </div>
 
 
-    <h2 class="section-title">🛒 ตะกร้าสินค้า</h2>
+    <h2 class="section-title">
+      🛒 ตะกร้าสินค้า
+    </h2>
+
 
     <div class="cart">
 
       <div id="cartItems">
+
         <div class="empty">
           ยังไม่มีสินค้าในตะกร้า 💕
         </div>
+
       </div>
 
+
       <div class="total">
+
         รวมทั้งหมด:
-        <span id="total">0</span>
+
+        <span id="total">
+          0
+        </span>
+
         บาท
+
       </div>
 
     </div>
 
 
-    <h2 class="section-title">🧾 ข้อมูลสำหรับจัดส่ง</h2>
+    <h2 class="section-title">
+      🧾 ข้อมูลสำหรับจัดส่ง
+    </h2>
+
 
     <form onsubmit="submitOrder(event)">
 
-      <label for="name">ชื่อผู้รับ</label>
+      <label for="name">
+        ชื่อผู้รับ
+      </label>
 
       <input
         id="name"
@@ -378,7 +700,9 @@
       >
 
 
-      <label for="phone">เบอร์โทรศัพท์</label>
+      <label for="phone">
+        เบอร์โทรศัพท์
+      </label>
 
       <input
         id="phone"
@@ -388,7 +712,9 @@
       >
 
 
-      <label for="address">ที่อยู่จัดส่ง</label>
+      <label for="address">
+        ที่อยู่จัดส่ง
+      </label>
 
       <textarea
         id="address"
@@ -405,6 +731,7 @@
         💗 ยืนยันคำสั่งซื้อ
       </button>
 
+
       <div
         class="status"
         id="status"
@@ -420,17 +747,27 @@
       id="paymentBox"
     >
 
-      <h2>💗 ชำระเงิน</h2>
+      <h2>
+        💗 ชำระเงิน
+      </h2>
 
       <p>
         สแกน QR พร้อมเพย์เพื่อชำระเงินได้เลยค่ะ
       </p>
 
+
       <div class="payment-total">
+
         ยอดที่ต้องชำระ
-        <span id="paymentTotal">0</span>
+
+        <span id="paymentTotal">
+          0
+        </span>
+
         บาท
+
       </div>
+
 
       <img
         class="payment-qr"
@@ -438,12 +775,15 @@
         alt="QR พร้อมเพย์ Lovely Loop"
       >
 
+
       <div class="payment-note">
 
         📱 สแกน QR แล้วกรอกยอดเงินตามยอดที่แสดงด้านบน
+
         <br>
 
         💕 หลังโอนเงินแล้ว กรุณาเก็บหลักฐานการโอนไว้
+
         <br>
 
         🌷 ทางร้านจะตรวจสอบยอดและติดต่อกลับค่ะ
@@ -472,7 +812,9 @@
 
 
   <!-- LIFF SDK -->
+
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
 
   <script>
 
@@ -480,9 +822,12 @@
        LIFF
        ===================================== */
 
-    const LIFF_ID = "2011677170-hmhyIinq";
+    const LIFF_ID =
+      "2011677170-hmhyIinq";
+
 
     let lineUserId = "";
+
 
     async function initLIFF() {
 
@@ -492,11 +837,16 @@
           liffId: LIFF_ID
         });
 
+
         if (liff.isLoggedIn()) {
 
-          const profile = await liff.getProfile();
+          const profile =
+            await liff.getProfile();
 
-          lineUserId = profile.userId;
+
+          lineUserId =
+            profile.userId;
+
 
           console.log(
             "LINE User ID:",
@@ -516,6 +866,7 @@
 
     }
 
+
     initLIFF();
 
 
@@ -534,10 +885,57 @@
     let cart = [];
 
 
-    function addToCart(name, price) {
+    function addSelectedToCart(
+      name,
+      price,
+      colorId,
+      patternId
+    ) {
+
+      const color =
+        document.getElementById(colorId).value;
+
+
+      const pattern =
+        document.getElementById(patternId).value;
+
+
+      if (!color || !pattern) {
+
+        alert(
+          "กรุณาเลือกสีและลาย / จี้ก่อนเพิ่มลงตะกร้านะคะ 💕"
+        );
+
+        return;
+
+      }
+
+
+      addToCart(
+        name,
+        price,
+        color,
+        pattern
+      );
+
+    }
+
+
+    function addToCart(
+      name,
+      price,
+      color,
+      pattern
+    ) {
 
       const existingItem =
-        cart.find(item => item.name === name);
+        cart.find(
+          item =>
+            item.name === name &&
+            item.color === color &&
+            item.pattern === pattern
+        );
+
 
       if (existingItem) {
 
@@ -546,31 +944,49 @@
       } else {
 
         cart.push({
+
           name: name,
+
           price: price,
+
+          color: color,
+
+          pattern: pattern,
+
           quantity: 1
+
         });
 
       }
+
 
       renderCart();
 
     }
 
 
-    function changeQuantity(index, amount) {
+    function changeQuantity(
+      index,
+      amount
+    ) {
 
       if (!cart[index]) {
         return;
       }
 
+
       cart[index].quantity += amount;
+
 
       if (cart[index].quantity <= 0) {
 
-        cart.splice(index, 1);
+        cart.splice(
+          index,
+          1
+        );
 
       }
+
 
       renderCart();
 
@@ -580,10 +996,15 @@
     function renderCart() {
 
       const cartItems =
-        document.getElementById("cartItems");
+        document.getElementById(
+          "cartItems"
+        );
+
 
       const totalElement =
-        document.getElementById("total");
+        document.getElementById(
+          "total"
+        );
 
 
       if (cart.length === 0) {
@@ -591,70 +1012,98 @@
         cartItems.innerHTML =
           '<div class="empty">ยังไม่มีสินค้าในตะกร้า 💕</div>';
 
-        totalElement.textContent = "0";
+        totalElement.textContent =
+          "0";
 
         return;
+
       }
 
 
       let total = 0;
+
       let html = "";
 
 
-      cart.forEach((item, index) => {
+      cart.forEach(
+        (item, index) => {
 
-        const subtotal =
-          item.price * item.quantity;
+          const subtotal =
+            item.price *
+            item.quantity;
 
-        total += subtotal;
+
+          total += subtotal;
 
 
-        html += `
-          <div class="cart-item">
+          html += `
 
-            <div>
+            <div class="cart-item">
 
-              <strong>${item.name}</strong>
+              <div>
 
-              <br>
+                <strong>
+                  ${item.name}
+                </strong>
 
-              ${item.price} บาท × ${item.quantity}
+                <br>
 
-              <br>
+                ${item.price} บาท × ${item.quantity}
 
-              <small>รวม ${subtotal} บาท</small>
+                <br>
+
+                <span class="cart-detail">
+
+                  สี: ${item.color}
+
+                  <br>
+
+                  ลาย / จี้: ${item.pattern}
+
+                </span>
+
+                <br>
+
+                <small>
+                  รวม ${subtotal} บาท
+                </small>
+
+              </div>
+
+
+              <div class="quantity">
+
+                <button
+                  type="button"
+                  onclick="changeQuantity(${index}, -1)"
+                >
+                  −
+                </button>
+
+
+                <button
+                  type="button"
+                  onclick="changeQuantity(${index}, 1)"
+                >
+                  +
+                </button>
+
+              </div>
 
             </div>
 
+          `;
 
-            <div class="quantity">
-
-              <button
-                type="button"
-                onclick="changeQuantity(${index}, -1)"
-              >
-                −
-              </button>
+        }
+      );
 
 
-              <button
-                type="button"
-                onclick="changeQuantity(${index}, 1)"
-              >
-                +
-              </button>
-
-            </div>
-
-          </div>
-        `;
-
-      });
+      cartItems.innerHTML =
+        html;
 
 
-      cartItems.innerHTML = html;
-
-      totalElement.textContent = total;
+      totalElement.textContent =
+        total;
 
     }
 
@@ -663,49 +1112,71 @@
        SUBMIT ORDER
        ===================================== */
 
-    async function submitOrder(event) {
+    async function submitOrder(
+      event
+    ) {
 
       event.preventDefault();
 
 
       if (cart.length === 0) {
 
-        alert("กรุณาเลือกสินค้าก่อนนะคะ 💕");
+        alert(
+          "กรุณาเลือกสินค้าก่อนนะคะ 💕"
+        );
 
         return;
+
       }
 
 
       const name =
-        document.getElementById("name").value.trim();
+        document
+          .getElementById("name")
+          .value
+          .trim();
+
 
       const phone =
-        document.getElementById("phone").value.trim();
+        document
+          .getElementById("phone")
+          .value
+          .trim();
+
 
       const address =
-        document.getElementById("address").value.trim();
+        document
+          .getElementById("address")
+          .value
+          .trim();
 
 
       const total =
         cart.reduce(
           (sum, item) =>
-            sum + (item.price * item.quantity),
+            sum +
+            (
+              item.price *
+              item.quantity
+            ),
           0
         );
 
 
       const items =
         cart
-          .map(item =>
-            `${item.name} x ${item.quantity}`
+          .map(
+            item =>
+              `${item.name} x ${item.quantity} (สี: ${item.color}, ลาย: ${item.pattern})`
           )
           .join(", ");
 
 
       const quantity =
         cart
-          .map(item =>
-            item.quantity
+          .map(
+            item =>
+              item.quantity
           )
           .join(", ");
 
@@ -716,32 +1187,54 @@
 
       const orderData = {
 
-        name: name,
-        phone: phone,
-        address: address,
-        items: items,
-        quantity: quantity,
-        total: total,
+        name:
+          name,
+
+        phone:
+          phone,
+
+        address:
+          address,
+
+        items:
+          items,
+
+        quantity:
+          quantity,
+
+        total:
+          total,
 
         /* LINE USER ID */
-        lineUserId: lineUserId
+
+        lineUserId:
+          lineUserId
 
       };
 
 
       const button =
-        document.getElementById("orderButton");
+        document.getElementById(
+          "orderButton"
+        );
+
 
       const status =
-        document.getElementById("status");
+        document.getElementById(
+          "status"
+        );
 
 
-      button.disabled = true;
+      button.disabled =
+        true;
+
 
       button.textContent =
         "⏳ กำลังส่งคำสั่งซื้อ...";
 
-      status.textContent = "";
+
+      status.textContent =
+        "";
 
 
       try {
@@ -750,17 +1243,23 @@
           WEB_APP_URL,
           {
 
-            method: "POST",
+            method:
+              "POST",
 
-            mode: "no-cors",
+            mode:
+              "no-cors",
 
             headers: {
+
               "Content-Type":
                 "text/plain;charset=utf-8"
+
             },
 
             body:
-              JSON.stringify(orderData)
+              JSON.stringify(
+                orderData
+              )
 
           }
         );
@@ -773,22 +1272,34 @@
         /* แสดง QR พร้อมเพย์ */
 
         document
-          .getElementById("paymentTotal")
-          .textContent = total;
+          .getElementById(
+            "paymentTotal"
+          )
+          .textContent =
+          total;
+
 
         document
-          .getElementById("paymentBox")
-          .classList.add("show");
+          .getElementById(
+            "paymentBox"
+          )
+          .classList
+          .add("show");
 
 
         alert(
+
           "🌷 ขอบคุณสำหรับคำสั่งซื้อค่ะ 💗\n\n" +
+
           "ระบบได้รับข้อมูลคำสั่งซื้อแล้ว\n" +
+
           "กรุณาชำระเงินตาม QR พร้อมเพย์ที่แสดงด้านล่างค่ะ"
+
         );
 
 
         cart = [];
+
 
         renderCart();
 
@@ -800,20 +1311,28 @@
 
       } catch (error) {
 
-        console.error(error);
+        console.error(
+          error
+        );
+
 
         status.textContent =
           "❌ ไม่สามารถส่งคำสั่งซื้อได้";
 
 
         alert(
+
           "ขออภัยค่ะ ระบบส่งคำสั่งซื้อไม่สำเร็จ\n" +
+
           "กรุณาลองใหม่อีกครั้งนะคะ"
+
         );
 
       } finally {
 
-        button.disabled = false;
+        button.disabled =
+          false;
+
 
         button.textContent =
           "💗 ยืนยันคำสั่งซื้อ";
