@@ -1238,35 +1238,35 @@
 
 
       try {
+const response = await fetch(
+  WEB_APP_URL,
+  {
+    method: "POST",
 
-        await fetch(
-          WEB_APP_URL,
-          {
+    headers: {
+      "Content-Type": "application/json"
+    },
 
-            method:
-              "POST",
+    body: JSON.stringify(orderData)
+  }
+);
 
-            mode:
-              "no-cors",
+const result = await response.json();
 
-            headers: {
+if (!result.success) {
+  throw new Error("ไม่สามารถบันทึกคำสั่งซื้อได้");
+}
 
-              "Content-Type":
-                "text/plain;charset=utf-8"
+status.innerHTML =
+  "🎉 สั่งซื้อสำเร็จแล้วค่ะ<br><br>" +
+  "🧾 เลขออเดอร์: <strong>" +
+  result.orderNumber +
+  "</strong><br>" +
+  "💰 ยอดชำระ: <strong>" +
+  total +
+  " บาท</strong><br><br>" +
+  "กรุณาชำระเงินตาม QR พร้อมเพย์ด้านล่างค่ะ 💕";
 
-            },
-
-            body:
-              JSON.stringify(
-                orderData
-              )
-
-          }
-        );
-
-
-        status.textContent =
-          "💗 ส่งคำสั่งซื้อเรียบร้อยแล้วค่ะ";
 
 
         /* แสดง QR พร้อมเพย์ */
